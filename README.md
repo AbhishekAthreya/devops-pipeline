@@ -59,14 +59,14 @@ Container processes can occasionally hang or enter a deadlocked state without cr
 ### 1. Ansible Playbook Execution
 Running `sudo ansible-playbook -i inventory playbook.yml` provisions `localhost` using `quote_api_role`, verifies the Python 3 installation, copies the updated application file, and triggers the `restart app service` handler on port `8000` with zero failures (`ok=4 changed=1 unreachable=0 failed=0`):
 
-![Ansible Playbook Execution](image_863299.png)
+![Ansible Playbook Execution](image_862e5d.png)
 
 ### 2. Kubernetes Horizontal Scaling to 5 Replicas
 Executing `kubectl scale deployment quote-api-deployment --replicas=5` followed by `kubectl get pods` confirms that the ReplicaSet scaled the application to 5 healthy, concurrent pods (`1/1 Running` with `0` restarts):
 
-![Kubernetes Scaling to 5 Replicas](image_8632b5.png)
+![Kubernetes Scaling to 5 Replicas](image_862e7b.png)
 
 ### 3. FastAPI Swagger UI & Working `/quote` Endpoint
 Accessing the exposed Kubernetes service in the browser loads the interactive [FastAPI](https://fastapi.tiangolo.com/tutorial/) Swagger UI (`/docs`), displaying the `GET /quote` endpoint ready for live testing:
 
-![FastAPI Swagger UI](image_8632d4.png)
+![FastAPI Swagger UI](image_862e98.png)
