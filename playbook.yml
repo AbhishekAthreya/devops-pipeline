@@ -1,0 +1,5 @@
+- hosts: localhost
+  become: yes
+  roles:
+    - quote_api_role
+

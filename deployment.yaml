@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quote-api-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: quote-api
+  template:
+    metadata:
+      labels:
+        app: quote-api
+    spec:
+      containers:
+      - name: quote-api
+        image: quote-api
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8000
+        livenessProbe:
+          httpGet:
+            path: /docs
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+

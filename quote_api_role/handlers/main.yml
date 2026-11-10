@@ -1,0 +1,4 @@
+- name: restart app service
+  debug:
+    msg: "Simulating service restart on port {{ app_port }}"
+
