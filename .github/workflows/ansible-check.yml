@@ -1,0 +1,15 @@
+name: Ansible Syntax Check
+
+on:
+  push:
+    branches: [ "main", "master" ]
+
+jobs:
+  ansible_test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install Ansible
+      run: sudo apt-get update && sudo apt-get install -y ansible
+    - name: Check Playbook Syntax
+      run: ansible-playbook playbook.yml --syntax-check
